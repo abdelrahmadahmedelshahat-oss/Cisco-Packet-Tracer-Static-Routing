@@ -250,7 +250,15 @@ Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)
 ```
 
 ✅ Successful communication between the two different networks.
+### 💡 Try It Yourself
 
+Want to test the connectivity yourself?
+
+Try using the `ping` command with the IP address of a device in the other network:
+
+ping 10.0.2.2
+
+You can also test other devices by using their IP addresses.
 ---
 
 # 🧠 Key Concepts Practiced
