@@ -1,5 +1,5 @@
 # 🌐 Cisco Packet Tracer — Static Routing Lab
-
+![Network Topology](screenshots/network-topology.png)
 My first practical networking lab using **Cisco Packet Tracer**.
 
 In this lab, I built a small network consisting of two separate LANs connected through two routers, then configured **Static Routing** to allow hosts in one network to communicate with hosts in the other network.
