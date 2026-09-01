@@ -1,5 +1,4 @@
-# 🌐 Cisco Packet Tracer — Static Routing Lab
-![Network Topology](screenshots/network-topology.png)
+
 # 🌐 Cisco Packet Tracer — Static Routing Lab
 
 ![Network Topology](screenshots/network-topology.png)
