@@ -1,5 +1,9 @@
 # 🌐 Cisco Packet Tracer — Static Routing Lab
 ![Network Topology](screenshots/network-topology.png)
+# 🌐 Cisco Packet Tracer — Static Routing Lab
+
+![Network Topology](screenshots/network-topology.png)
+
 My first practical networking lab using **Cisco Packet Tracer**.
 
 In this lab, I built a small network consisting of two separate LANs connected through two routers, then configured **Static Routing** to allow hosts in one network to communicate with hosts in the other network.
@@ -10,18 +14,18 @@ In this lab, I built a small network consisting of two separate LANs connected t
 
 Before building the lab, I studied some networking fundamentals:
 
-- Host
-- Network
-- Internet
-- Server & Client
-- Router / Gateway
-- Packet
-- IP Address
-- Subnet Mask
-- DHCP
-- DNS
-- Ethernet
-- TCP/IP
+* Host
+* Network
+* Internet
+* Server & Client
+* Router / Gateway
+* Packet
+* IP Address
+* Subnet Mask
+* DHCP
+* DNS
+* Ethernet
+* TCP/IP
 
 I then applied some of these concepts practically using Cisco Packet Tracer.
 
@@ -52,7 +56,7 @@ I then applied some of these concepts practically using Cisco Packet Tracer.
                     │
               G0/1  │  10.0.0.2/30
                ┌────┴────┐
-               │ Router1 │
+               │ Router2 │
                └────┬────┘
                     │
                G0/0  │  10.0.2.1/24
@@ -72,26 +76,26 @@ I then applied some of these concepts practically using Cisco Packet Tracer.
 
 ### Network 1
 
-| Device | Interface | IP Address | Subnet Mask | Default Gateway |
-|---|---|---|---|---|
-| PC0 | Ethernet | `10.0.1.2` | `255.255.255.0` | `10.0.1.1` |
-| PC1 | Ethernet | `10.0.1.3` | `255.255.255.0` | `10.0.1.1` |
-| Router0 | G0/0 | `10.0.1.1` | `255.255.255.0` | — |
+| Device  | Interface | IP Address | Subnet Mask     | Default Gateway |
+| ------- | --------- | ---------- | --------------- | --------------- |
+| PC0     | Ethernet  | `10.0.1.2` | `255.255.255.0` | `10.0.1.1`      |
+| PC1     | Ethernet  | `10.0.1.3` | `255.255.255.0` | `10.0.1.1`      |
+| Router0 | G0/0      | `10.0.1.1` | `255.255.255.0` | —               |
 
 ### Network 2
 
-| Device | Interface | IP Address | Subnet Mask | Default Gateway |
-|---|---|---|---|---|
-| PC2 | Ethernet | `10.0.2.2` | `255.255.255.0` | `10.0.2.1` |
-| PC3 | Ethernet | `10.0.2.3` | `255.255.255.0` | `10.0.2.1` |
-| Router1 | G0/0 | `10.0.2.1` | `255.255.255.0` | — |
+| Device  | Interface | IP Address | Subnet Mask     | Default Gateway |
+| ------- | --------- | ---------- | --------------- | --------------- |
+| PC2     | Ethernet  | `10.0.2.2` | `255.255.255.0` | `10.0.2.1`      |
+| PC3     | Ethernet  | `10.0.2.3` | `255.255.255.0` | `10.0.2.1`      |
+| Router2 | G0/0      | `10.0.2.1` | `255.255.255.0` | —               |
 
 ### Router-to-Router Network
 
-| Device | Interface | IP Address | Subnet Mask |
-|---|---|---|---|
-| Router0 | G0/1 | `10.0.0.1` | `255.255.255.252` |
-| Router1 | G0/1 | `10.0.0.2` | `255.255.255.252` |
+| Device  | Interface | IP Address | Subnet Mask       |
+| ------- | --------- | ---------- | ----------------- |
+| Router0 | G0/1      | `10.0.0.1` | `255.255.255.252` |
+| Router2 | G0/1      | `10.0.0.2` | `255.255.255.252` |
 
 ---
 
@@ -112,7 +116,7 @@ ip address 10.0.0.1 255.255.255.252
 no shutdown
 ```
 
-## Router1
+## Router2
 
 ```bash
 enable
@@ -153,17 +157,17 @@ The **next-hop** is:
 10.0.0.2
 ```
 
-which is the IP address of Router1 on the router-to-router network.
+which is the IP address of Router2 on the router-to-router network.
 
 ---
 
-Router1 also needs to know how to reach Network 1:
+Router2 also needs to know how to reach Network 1:
 
 ```text
 10.0.1.0/24
 ```
 
-### Router1
+### Router2
 
 ```bash
 ip route 10.0.1.0 255.255.255.0 10.0.0.1
@@ -194,7 +198,7 @@ GigabitEthernet0/0    10.0.1.1    YES manual    up    up
 GigabitEthernet0/1    10.0.0.1    YES manual    up    up
 ```
 
-### Router1
+### Router2
 
 ```text
 GigabitEthernet0/0    10.0.2.1    YES manual    up    up
@@ -217,7 +221,7 @@ Router0 shows:
 S 10.0.2.0/24 [1/0] via 10.0.0.2
 ```
 
-Router1 shows:
+Router2 shows:
 
 ```text
 S 10.0.1.0/24 [1/0] via 10.0.0.1
@@ -288,10 +292,10 @@ The IP address of the next router to which a packet should be forwarded.
 
 # 🛠️ Tools
 
-- Cisco Packet Tracer
-- Cisco IOS CLI
-- IPv4
-- Ethernet
+* Cisco Packet Tracer
+* Cisco IOS CLI
+* IPv4
+* Ethernet
 
 ---
 
